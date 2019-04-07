@@ -1,0 +1,51 @@
+<h1>witaj uzytjowniku, {{ name }}</h1>
+<button [disabled]="true" class="uk-button uk-button-primary">wyloguj</button>
+<div>
+<input [(ngModel)]="name2" class="uk-input uk-width-1-2" type="text">
+</div>
+<p *ngIf="showP">{{name2}}</p>
+
+<hr>
+<!--<app-user-add-form></app-user-add-form>-->
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="uk-width-1-2-3" action="">
+  <div class="uk-margin">
+  <label for="firstName">Imie</label>
+    <input class="uk-input" ngModel name = "firstName" id= ="firstName" type="text" required>
+  </div>
+</form>
+
+<form action="">
+  <div class="uk-margin">
+    <label for="lastName">nazwisko</label>
+    <input class = "uk-input" ngModel name="lastName" id="lasttName" type="text" required>
+  </div>
+</form>
+
+<form action="">
+  <div class="uk-margin">
+    <label for="age">wiek</label>
+    <input class="uk-input" ngModel name="age" id = "age" type="text" required>
+  </div>
+</form>
+
+<form action="">
+  <div class="uk-margin">
+    <label for="city">miasto</label>
+    <input class="uk-input" ngModel name="city" id="city" type="text"required>
+  </div>
+</form>
+
+<hr>
+
+<div [ngClass]="{'ul-card-primary': true}" *ngFor="let user of userArray" class="uk-card uk-card-default uk-width-1-2 uk-margin">
+  <div class="uk-card-header">
+    <h3 class="uk-card-title">{{user.firstName + ' ' + user.lastName}}</h3>
+
+  </div>
+  <div class="uk-card-body">
+    <p>Wiek:{{user.age}}</p>
+    <p>Miasto: {{user.city}}</p>
+  </div>
+
+</div>
